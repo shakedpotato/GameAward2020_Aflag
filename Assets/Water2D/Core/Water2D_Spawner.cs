@@ -144,6 +144,7 @@
 
 			_parent = new GameObject ("_metaBalls");
 			_parent.hideFlags = HideFlags.HideInHierarchy;
+			WaterDropsObjects [0] = GameObject.Find("WaterDrop");
 			WaterDropsObjects [0].transform.SetParent (_parent.transform);
 			WaterDropsObjects [0].transform.localScale = new Vector3 (size, size, 1f);
 			WaterDropsObjects [0].GetComponent<MetaballParticleClass>().Active = false;
