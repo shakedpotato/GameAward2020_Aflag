@@ -5,13 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
-    public string scene_name;
+    
+    [SerializeField] Vector3 StartPosition;
 
     Transform m_transform;
     // Start is called before the first frame update
     void Start()
     {
         m_transform = this.transform;
+        
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class Ball : MonoBehaviour
     {
         if (m_transform.position.y <= -5.0)
         {
-            SceneManager.LoadScene(scene_name);
+            m_transform.position = StartPosition;
         }
 
     }
