@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class stage_rotation : MonoBehaviour
 {
-
     Rigidbody2D rigidbody;
     public float RotateSpeed = 2.0f;
     void Start()
     {
-        rigidbody =  gameObject.AddComponent<Rigidbody2D>();
+        rigidbody = gameObject.AddComponent<Rigidbody2D>();
         rigidbody.gravityScale = 0;
         rigidbody.mass = 10000;
         rigidbody.isKinematic = true;
