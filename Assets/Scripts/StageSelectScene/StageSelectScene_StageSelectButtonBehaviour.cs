@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 // StageSelectButtonBehaviour
 // ステージセレクト画面の各ステージのパネルオブジェクトにアタッチする。
-public class StageSelectButtonBehaviour : MonoBehaviour
+public class StageSelectScene_StageSelectButtonBehaviour : MonoBehaviour
 {
 
     // GameSceneのGameControllerObjの初期化処理に合わせて、このクラスが持つべき要素が異なるので、すり合わせをすること TODO---!>
