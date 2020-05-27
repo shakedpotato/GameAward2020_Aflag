@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 // StageSelectButtonBehaviour
 // ステージセレクト画面の各ステージのパネルオブジェクトにアタッチする。
-public class StageSelectButtonBehaviour : MonoBehaviour
+public class StageSelectScene_StageSelectButtonBehaviour : MonoBehaviour
 {
 
     // GameSceneのGameControllerObjの初期化処理に合わせて、このクラスが持つべき要素が異なるので、すり合わせをすること TODO---!>
@@ -21,9 +21,9 @@ public class StageSelectButtonBehaviour : MonoBehaviour
 
     public void OnClickButton()
     {
-        Debug.Log("OnClick was called. The next stage name is " + TargetStageName + ".");
+        Debug.Log(TargetStageName + " ボタン　クリック!");
 
-        Debug.Log("Initiate loading the next scene. Scene name is " + TargetStageName + ".");
+        Debug.Log("シーンの非同期読込開始. シーン名: " + TargetStageName + ".");
         SceneManager.LoadSceneAsync(TargetStageName);
 
     }
