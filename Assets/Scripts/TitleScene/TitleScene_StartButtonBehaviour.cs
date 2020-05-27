@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class StartButtonBehaviour : MonoBehaviour
+public class TitleScene_StartButtonBehaviour : MonoBehaviour
 {
     private const string gameSceneName = "test";
     
