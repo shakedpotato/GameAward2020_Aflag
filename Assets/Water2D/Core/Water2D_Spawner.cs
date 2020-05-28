@@ -143,7 +143,8 @@
 			//Application.targetFrameRate = 60;
 
 			_parent = new GameObject ("_metaBalls");
-			_parent.hideFlags = HideFlags.HideInHierarchy;
+			_parent.transform.SetParent(GameController.instance.transform);
+			//_parent.hideFlags = HideFlags.HideInHierarchy;
 			WaterDropsObjects [0] = GameObject.Find("WaterDrop");
 			WaterDropsObjects [0].transform.SetParent (_parent.transform);
 			WaterDropsObjects [0].transform.localScale = new Vector3 (size, size, 1f);
@@ -240,19 +241,19 @@
 
 			microSpawns.Clear ();
 
-
+			/*
 			for (int i = 0; i < WaterDropsObjects.Length; i++) {
 				if (WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().Active == true) {
 					WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().Active = false;
 				}
 				WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().witinTarget = false;			
 			}
+			*/
 
 
 
-
-			gameObject.transform.localEulerAngles = Vector3.zero;
-			initSpeed = new Vector2 (0, -2f);
+			//gameObject.transform.localEulerAngles = Vector3.zero;
+			//initSpeed = new Vector2 (0, -2f);
 
 			DefaultCount = AllBallsCount;
 			//usableDropsCount = DefaultCount;

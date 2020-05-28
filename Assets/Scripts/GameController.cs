@@ -13,6 +13,11 @@ public class GameController : MonoBehaviour
 
     public static GameController instance { get; private set; }
 
+
+    Water2D.Water2D_Spawner Water2D_Spawner;
+    GameObject[] waterdrop;
+
+    
     /*
      ステージ遷移したい場合　必要なところでこれを呼ぶ
         GameController.instance.NextScene();
@@ -37,6 +42,7 @@ public class GameController : MonoBehaviour
         StageObject = null;
         NextStageNum = 0;
         CurrentStageNum = -1;
+       
     }
 
     // Update is called once per frame
@@ -44,15 +50,22 @@ public class GameController : MonoBehaviour
     {
         if(NextStageNum != CurrentStageNum)
         {
-            if (NextStageNum <= ListSize)
-            {
-                if (StageObject) { Destroy(StageObject); }
-                StageObject = Instantiate(gameObjects[NextStageNum]);
-                CurrentStageNum = NextStageNum;
-            }
+            InstantiateStage(NextStageNum);
         }
         
     }
+    void InstantiateStage(int StageNum)
+    {
+        if (StageNum <= ListSize)
+        {
+            if (StageObject) { Destroy(StageObject); }
+            StageObject = Instantiate(gameObjects[StageNum]);
+            StageObject.transform.SetParent(transform);
+            CurrentStageNum = StageNum;
+            Water2D_Spawner = GameObject.Find("Water2D_Spawner").GetComponent<Water2D.Water2D_Spawner>();
+        }
+    }
+
     private void EndGame()
     {
 
@@ -73,8 +86,7 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
-        if (StageObject) { Destroy(StageObject); }
-        StageObject = Instantiate(gameObjects[CurrentStageNum]);
+        InstantiateStage(CurrentStageNum);
     }
     
 }
