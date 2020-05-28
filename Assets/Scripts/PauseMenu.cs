@@ -84,7 +84,7 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("OnClickButton_SelectStage");
 
         Debug.Log("ステージセレクトシーンの非同期読込開始");
-        SceneManager.LoadSceneAsync("SelecStagetScene"); // StageSelectScene
+        SceneManager.LoadSceneAsync("SelectStageScene"); // StageSelectScene
 
     }
     public void OnClickButton_BackToTitle()
