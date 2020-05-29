@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class TitleScene_StartButtonBehaviour : MonoBehaviour
 {
-    private const string gameSceneName = "test";
     
     public void OnClick()
     {
@@ -17,6 +16,6 @@ public class TitleScene_StartButtonBehaviour : MonoBehaviour
 
         // ゲームシーンの非同期ロード開始    
         Debug.Log("ゲームシーンの非同期読込開始。");
-        SceneManager.LoadSceneAsync(gameSceneName);
+        SceneManager.LoadSceneAsync("GameScene");
     }
 }
