@@ -52,17 +52,32 @@ public class Pausable : MonoBehaviour {
 	/// </summary>
 	MonoBehaviour[] pausingMonoBehaviours;
 
+	/////////////////////
+	bool restart = false;
+
 	/// <summary>
 	/// 更新処理
 	/// </summary>
-	void Update() {
+	void Update()
+	{
 		// ポーズ状態が変更されていたら、Pause/Resumeを呼び出す。
 		if (prevPausing != pausing)
 		{
-			if (pausing) Pause ();
-			else Resume ();
+			if (pausing) Pause();
+			else Resume();
 			prevPausing = pausing;
+			if (restart)
+			{
+				GameController.instance.Restart();
+			}
 		}
+	}
+
+	public void RestartPausable()
+	{
+		pausing = false;
+		restart = true;
+
 	}
 
 	/// <summary>
