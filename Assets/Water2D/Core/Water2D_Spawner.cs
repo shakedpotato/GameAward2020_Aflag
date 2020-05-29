@@ -34,6 +34,11 @@
 
 		[Space(25f)]
 
+		///	<summury>
+		///	Drops Object Prefab
+		/// </summury>
+		[SerializeField]
+		private GameObject WaterDropPrefab;
 		/// <summary>
 		/// Drops objects array.
 		/// </summary>
@@ -143,9 +148,9 @@
 			//Application.targetFrameRate = 60;
 
 			_parent = new GameObject ("_metaBalls");
-			_parent.transform.SetParent(GameController.instance.transform);
+			_parent.transform.SetParent(GameController.instance.transform.GetChild(0));
 			//_parent.hideFlags = HideFlags.HideInHierarchy;
-			WaterDropsObjects [0] = GameObject.Find("WaterDrop");
+			WaterDropsObjects[0] = Instantiate(WaterDropPrefab) as GameObject;
 			WaterDropsObjects [0].transform.SetParent (_parent.transform);
 			WaterDropsObjects [0].transform.localScale = new Vector3 (size, size, 1f);
 			WaterDropsObjects [0].GetComponent<MetaballParticleClass>().Active = false;
