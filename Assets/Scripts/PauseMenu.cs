@@ -35,10 +35,10 @@ public class PauseMenu : MonoBehaviour
         { // ポーズ中でメニューが出ていなければ、メニューを出す
             ShowMenu();
         }
-        else if (!pausable.pausing && isShowing)
-        { // ポーズ中でなくてメニューが出ているのであれば、メニューを隠す
-            HideMenuAndResumeTheGame();
-        }
+        //else if (!pausable.pausing && isShowing)
+        //{ // ポーズ中でなくてメニューが出ているのであれば、メニューを隠す
+        //    HideMenuAndResumeTheGame();
+        //}
     }
 
     public void ShowMenu()
@@ -51,8 +51,8 @@ public class PauseMenu : MonoBehaviour
     // ポーズメニューを隠すだけ
     public void HideMenu()
     {
-        menuCanvas.SetActive(false);
         isShowing = false;
+        menuCanvas.SetActive(false);
     }
 
     // ポーズメニューを隠してゲームを再開する
@@ -76,6 +76,8 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("OnClickButton_Restart");
 
+        HideMenu();
+        pausable.RestartPausable();
         gameController.Restart();
 
     }
