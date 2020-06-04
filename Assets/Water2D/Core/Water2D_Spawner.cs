@@ -132,11 +132,16 @@
 		// Used to make spawn in other positions with same properties (use same array of particles)
 		List<microSpawn> microSpawns;
 
-		bool _breakLoop = false;
+		public bool _breakLoop = false;
 
 		GameObject _parent;
 
 
+		// 大変危険なコードです!!!!!!!
+		public void StopSpawn()
+        {
+			_breakLoop = true;
+        }
 
 		void Start()
 		{

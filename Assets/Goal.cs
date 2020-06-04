@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-
+using Water2D;
 
 public class Goal : MonoBehaviour
 {
@@ -44,7 +44,7 @@ public class Goal : MonoBehaviour
             Instantiate(objectAfterClear);
 
             // スポナーの排水を止める。
-
+            Water2D_Spawner.instance.StopSpawn();
 
             // おわり
             isCleared = true;
