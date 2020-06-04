@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     private int NextStageNum = 0;
     private int CurrentStageNum = -1;
     private GameObject StageObject;
+    private Quaternion StartRotate;
 
     public static GameController instance { get; private set; }
 
@@ -85,7 +86,11 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
-        InstantiateStage(CurrentStageNum);
+       
+        StageObject.GetComponentInChildren<stage_rotation>().RotZero();
+        Water2D_Spawner.DelWater();
+        Water2D_Spawner.Spawn();
+        //InstantiateStage(CurrentStageNum);
     }
     
 }
