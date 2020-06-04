@@ -151,8 +151,8 @@
 			_parent.transform.SetParent(GameController.instance.transform);
 			//_parent.hideFlags = HideFlags.HideInHierarchy;
 			WaterDropsObjects [0] = GameObject.Find("WaterDrop");
-			WaterDropsObjects [0].transform.SetParent (_parent.transform);
 			WaterDropsObjects [0].transform.localScale = new Vector3 (size, size, 1f);
+			WaterDropsObjects [0].transform.SetParent (_parent.transform);
 			WaterDropsObjects [0].GetComponent<MetaballParticleClass>().Active = false;
 
 
@@ -237,7 +237,18 @@
 				microSpawns.Clear ();
 			}
 		}
+		public void DelWater()
+		{
 
+			for (int i = 0; i < WaterDropsObjects.Length; i++)
+			{
+				if (WaterDropsObjects[i].GetComponent<MetaballParticleClass>().Active == true)
+				{
+					WaterDropsObjects[i].GetComponent<MetaballParticleClass>().Active = false;
+				}
+				WaterDropsObjects[i].GetComponent<MetaballParticleClass>().witinTarget = false;
+			}
+		}
 		public void Restore()
 		{
 
@@ -246,14 +257,8 @@
 
 			microSpawns.Clear ();
 
-			/*
-			for (int i = 0; i < WaterDropsObjects.Length; i++) {
-				if (WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().Active == true) {
-					WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().Active = false;
-				}
-				WaterDropsObjects [i].GetComponent<MetaballParticleClass> ().witinTarget = false;			
-			}
-			*/
+			
+			
 
 
 

@@ -29,4 +29,9 @@ public class stage_rotation : MonoBehaviour
 
 
     }
+
+    public void RotZero()
+    {
+        rigidbody.MoveRotation(0);
+    }
 }

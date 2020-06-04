@@ -76,6 +76,8 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("OnClickButton_Restart");
 
+        HideMenuAndResumeTheGame();
+
         gameController.Restart();
 
     }

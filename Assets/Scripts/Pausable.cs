@@ -59,8 +59,8 @@ public class Pausable : MonoBehaviour {
 		// ポーズ状態が変更されていたら、Pause/Resumeを呼び出す。
 		if (prevPausing != pausing)
 		{
-			if (pausing) Pause ();
-			else Resume ();
+			if (pausing) Pause();
+			else { Resume(); Water2D.Water2D_Spawner.instance.Spawn(); }
 			prevPausing = pausing;
 		}
 	}
@@ -94,7 +94,7 @@ public class Pausable : MonoBehaviour {
 		pausingMonoBehaviours = Array.FindAll(transform.GetComponentsInChildren<MonoBehaviour>(), monoBehaviourPredicate);
 		foreach(var monoBehaviour in pausingMonoBehaviours)
 		{
-			monoBehaviour.enabled = false;
+			//monoBehaviour.enabled = false;
 		}
 
 	}
@@ -102,14 +102,17 @@ public class Pausable : MonoBehaviour {
 	/// <summary>
 	/// 再開
 	/// </summary>
-	void Resume() {
-		Water2D.Water2D_Spawner.instance.Spawn();
+	public void Resume() {
+
 		// Rigidbodyの再開
 		for (int i = 0; i < pausingRigidbodies.Length; i++)
 		{
-			pausingRigidbodies[i].WakeUp();
-			pausingRigidbodies[i].velocity = rigidbodyVelocities[i].velocity;
-			pausingRigidbodies[i].angularVelocity = rigidbodyVelocities[i].angularVeloccity;
+			if (pausingRigidbodies[i])
+			{
+				pausingRigidbodies[i].WakeUp();
+				pausingRigidbodies[i].velocity = rigidbodyVelocities[i].velocity;
+				pausingRigidbodies[i].angularVelocity = rigidbodyVelocities[i].angularVeloccity;
+			}
 		}
 
 		// MonoBehaviourの再開
