@@ -30,7 +30,6 @@ public class GameController : MonoBehaviour
         {
 
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
