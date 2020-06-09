@@ -4,32 +4,48 @@ using UnityEngine;
 
 public class SampleAwake : MonoBehaviour
 {
-    [SerializeField] private SoundManager soundManager;
-    // Start is called before the first frame update
+    //[SerializeField] private SoundManager soundManager;
+    //// Start is called before the first frame update
     void Start()
     {
-        soundManager.Load();
-        //BGM開始
-        soundManager.StartBGM(0);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //BGM変更
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            soundManager.OnBGM(1);
-        }
         //効果音再生
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            SoundManager.instance.Play(0, SoundManager.PLAY_OPTION.ADDITIVE, false, SoundManager.AUDIO_TYPE.EFFECT);
+        }
+        
         if (Input.GetKeyDown(KeyCode.X))
         {
-            soundManager.PlayEffectSound(0);
+            SoundManager.instance.Play(2, SoundManager.PLAY_OPTION.ADDITIVE, false, SoundManager.AUDIO_TYPE.BGM);
         }
-        //BGM止め
         if (Input.GetKeyDown(KeyCode.C))
         {
-            soundManager.OffBGM();
+            SoundManager.instance.Play("なぞなぞのなぞ", SoundManager.PLAY_OPTION.CONTINUOUS, false, SoundManager.AUDIO_TYPE.BGM);
+        }
+        if (Input.GetKeyDown(KeyCode.V))
+        {
+            SoundManager.instance.Play("なぞなぞのなぞ", SoundManager.PLAY_OPTION.RESTART, false, SoundManager.AUDIO_TYPE.BGM);
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            
+            SoundManager.instance.GradVolumeFromCurrent(SoundManager.AUDIO_TYPE.BGM, 0.0f, 5.0f);
+        }
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+
+            SoundManager.instance.GradVolumeFromCurrent(SoundManager.AUDIO_TYPE.BGM, 1.0f, 5.0f);
+        }
+
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            SoundManager.instance.ChangeBGM(1);
         }
     }
 }

@@ -301,5 +301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02066f37bfb67e84baa95cbcf792fdb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effectSound: []
-  BGM: []
+  audioClips: []
+  seMixer: {fileID: -5239909831855363165, guid: 8f9fe64d2bd95ed419e0ca5a548090db,
+    type: 2}
+  bgmMixer: {fileID: -62201508253948543, guid: 8f9fe64d2bd95ed419e0ca5a548090db, type: 2}
+  nonCategorizedMixer: {fileID: 8313273282301260569, guid: 8f9fe64d2bd95ed419e0ca5a548090db,
+    type: 2}
