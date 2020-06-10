@@ -12,9 +12,10 @@ public class GameController : MonoBehaviour
     private GameObject StageObject;
     private Quaternion StartRotate;
 
+
+
     public static GameController instance { get; private set; }
-
-
+    public float StartDelay = 5;
     Water2D.Water2D_Spawner Water2D_Spawner;
     GameObject[] waterdrop;
 
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
 
+       
         if (instance == null)
         {
 
@@ -63,9 +65,18 @@ public class GameController : MonoBehaviour
             StageObject.transform.SetParent(transform);
             CurrentStageNum = StageNum;
             Water2D_Spawner = GameObject.Find("Water2D_Spawner").GetComponent<Water2D.Water2D_Spawner>();
+
+            
+            Invoke("DelayMethod_Sawn", StartDelay);
         }
     }
 
+    void DelayMethod_Sawn()
+    {
+        Water2D_Spawner.Spawn();
+        Debug.Log("DelayMethod_Sawn");
+    }
+   
     private void EndGame()
     {
 
