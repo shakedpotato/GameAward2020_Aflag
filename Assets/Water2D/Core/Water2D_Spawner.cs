@@ -21,6 +21,7 @@
 	public class Water2D_Spawner : MonoBehaviour
 	{
 
+
 		public static Water2D_Spawner instance;
 
 		void Awake()
@@ -86,13 +87,13 @@
         [Header("Runtime actions")]
 
         [ButtonAttribute("Start!", "Water2D.Water2D_Spawner", "RunSpawner")]public bool btn_0;
-		static void RunSpawner()
+		public static void RunSpawner()
 		{
             instance.Spawn();
 
         }
         [ButtonAttribute("Stop and restore", "Water2D.Water2D_Spawner", "StopSpawner")] public bool btn_1;
-        static void StopSpawner()
+        public static void StopSpawner()
         {
             instance.Restore();
 
@@ -176,7 +177,7 @@
 			microSpawns = new List<microSpawn>(5); // Up to 5 microspwawn
 
 
-            instance.Spawn();
+            //instance.Spawn();
         }
 
 		public void RunMicroSpawn(Vector3 pos, int amount, Vector2 initVel)
