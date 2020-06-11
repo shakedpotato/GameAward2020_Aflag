@@ -18,8 +18,8 @@ public class GameController : MonoBehaviour
     public float StartDelay = 5;
     Water2D.Water2D_Spawner Water2D_Spawner;
     GameObject[] waterdrop;
+    Pausable pausable;
 
-    
     /*
      ステージ遷移したい場合　必要なところでこれを呼ぶ
         GameController.instance.NextScene();
@@ -27,8 +27,8 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        pausable = gameObject.GetComponent<Pausable>();
 
-       
         if (instance == null)
         {
 
@@ -73,8 +73,18 @@ public class GameController : MonoBehaviour
 
     void DelayMethod_Sawn()
     {
-        Water2D_Spawner.Spawn();
-        Debug.Log("DelayMethod_Sawn");
+        {
+            if (pausable.pausing)
+            {
+                Invoke("DelayMethod_Sawn", 1.0f);
+                Debug.Log("DelayMethod_Sawn_retry");
+            }
+            else
+            {
+                Water2D_Spawner.Spawn();
+                Debug.Log("DelayMethod_Sawn");
+            }
+        }
     }
    
     private void EndGame()
