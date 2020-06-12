@@ -56,6 +56,12 @@ public class Pausable : MonoBehaviour {
 	/// 更新処理
 	/// </summary>
 	void Update() {
+		// ESCキーでpausingフラグを切り替える(default値：false)
+		if (Input.GetButtonDown("Cancel"))
+		{
+			pausing = !pausing;
+		}
+
 		// ポーズ状態が変更されていたら、Pause/Resumeを呼び出す。
 		if (prevPausing != pausing)
 		{
