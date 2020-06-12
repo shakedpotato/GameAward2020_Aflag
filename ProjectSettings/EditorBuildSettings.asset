@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TitleScene.unity
     guid: 7aaa45980292c034fb3a199d902302aa
-  - enabled: 1
-    path: Assets/Scenes/test.unity
+  - enabled: 0
+    path: Assets/Scenes/Garbage/test.unity
     guid: 98c00dc1c23406944b9415dd2f666982
   - enabled: 1
     path: Assets/Scenes/SelectStageScene.unity
