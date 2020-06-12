@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class stage_rotation : MonoBehaviour
 {
+    // メンバ
     Rigidbody2D rigidbody;
     public float RotateSpeed = 2.0f;
+    public bool Automatic = false;
+
     void Start()
     {
         rigidbody = gameObject.AddComponent<Rigidbody2D>();
@@ -17,15 +20,21 @@ public class stage_rotation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        // キー操作入力
+        // D or LeftArrow
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))
         {
             rigidbody.MoveRotation(rigidbody.rotation + RotateSpeed);
             //this.transform.Rotate(0.0f, 0.0f, 1.0f);
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))
         {
             rigidbody.MoveRotation(rigidbody.rotation - RotateSpeed);
         }
+
+
+        if(Automatic)
+            rigidbody.MoveRotation(rigidbody.rotation + RotateSpeed);
 
 
     }
