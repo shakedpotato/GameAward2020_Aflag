@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleScene_StageSelectButtonBehaviour : MonoBehaviour
 {
-    private string stageSelectSceneName = "SelectStageScene";
+    private string stageSelectSceneName = "SelectStageScene_1";
     // Start is called before the first frame update
     public void OnClick()
     {
