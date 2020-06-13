@@ -50,4 +50,9 @@ public class Goal : MonoBehaviour
             isCleared = true;
         }
     }
+
+    public bool GetCleared()
+    {
+        return isCleared;
+    }
 }

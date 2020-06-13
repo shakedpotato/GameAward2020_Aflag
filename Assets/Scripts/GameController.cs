@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour
     Water2D.Water2D_Spawner Water2D_Spawner;
     GameObject[] waterdrop;
     Pausable pausable;
+    private Goal goal;
+    private Ball ball;
 
     /*
      ステージ遷移したい場合　必要なところでこれを呼ぶ
@@ -65,8 +67,9 @@ public class GameController : MonoBehaviour
             StageObject.transform.SetParent(transform);
             CurrentStageNum = StageNum;
             Water2D_Spawner = GameObject.Find("Water2D_Spawner").GetComponent<Water2D.Water2D_Spawner>();
+            goal = GameObject.Find("Goal").GetComponent<Goal>();
+            ball = GameObject.Find("Ball").GetComponent<Ball>();
 
-            
             Invoke("DelayMethod_Sawn", StartDelay);
         }
     }
@@ -114,4 +117,19 @@ public class GameController : MonoBehaviour
         //InstantiateStage(CurrentStageNum);
     }
     
+
+    public Goal GetGoal()
+    {
+        return goal;
+    }
+
+    public Pausable GetPausable()
+    {
+        return pausable;
+    }
+
+    public Ball GetBall()
+    {
+        return ball;
+    }
 }

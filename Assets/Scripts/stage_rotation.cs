@@ -22,12 +22,12 @@ public class stage_rotation : MonoBehaviour
     {
         // キー操作入力
         // D or LeftArrow
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             rigidbody.MoveRotation(rigidbody.rotation + RotateSpeed);
             //this.transform.Rotate(0.0f, 0.0f, 1.0f);
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             rigidbody.MoveRotation(rigidbody.rotation - RotateSpeed);
         }
